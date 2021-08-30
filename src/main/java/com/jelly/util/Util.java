@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Util {
+    public static final char[] LINE_SEPARATOR = System.lineSeparator().toCharArray();
+
     private static final Map<Character, Character> escapeMap = new HashMap<>();
 
     static {

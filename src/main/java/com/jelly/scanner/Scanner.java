@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
+import static com.jelly.util.Util.LINE_SEPARATOR;
+
 public final class Scanner implements ScannerImplementation {
     private static final int DEFAULT_LINE_BUFFER_SIZE = 256;
     private static final int LINE_BUFFER_SIZE_FACTOR = 2;
@@ -124,7 +126,7 @@ public final class Scanner implements ScannerImplementation {
         if(!scannedLine)
             return scanLine();
 
-        return new String(Arrays.copyOfRange(lineBuffer, 0, lineBufferSize));
+        return new String(Arrays.copyOfRange(lineBuffer, 0, lineBufferSize - ((implementation.hasNext()) ? LINE_SEPARATOR.length : 0)));
     }
 
     @Override
