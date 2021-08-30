@@ -5,11 +5,11 @@ import main.java.com.jelly.scanner.Scanner;
 
 import java.io.IOException;
 
-public class Tokenizer implements AutoCloseable {
+public class Lexer implements AutoCloseable {
     private Scanner scanner;
     private boolean closed;
 
-    public Tokenizer(final Scanner scanner) {
+    public Lexer(final Scanner scanner) {
         this.scanner = scanner;
     }
 
