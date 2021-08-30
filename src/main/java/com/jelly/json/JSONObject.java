@@ -1,6 +1,7 @@
 package com.jelly.json;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Runtime-Representation of the object type in JSON.
@@ -40,7 +41,7 @@ public final class JSONObject {
      */
     public void set(final String fieldName, final Object value) {
         if (value == null)
-            fields.put(fieldName, null);
+            fields.put(Objects.requireNonNull(fieldName), null);
         else if (value instanceof Boolean)
             set(fieldName, (boolean) value);
         else if (value instanceof Integer)
@@ -63,7 +64,7 @@ public final class JSONObject {
      * @param value value the field is to be set to.
      */
     public void set(final String fieldName, final boolean value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
@@ -72,7 +73,7 @@ public final class JSONObject {
      * @param value value the field is to be set to.
      */
     public void set(final String fieldName, final int value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
@@ -81,7 +82,7 @@ public final class JSONObject {
      * @param value value the field is to be set to.
      */
     public void set(final String fieldName, final float value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
@@ -90,7 +91,7 @@ public final class JSONObject {
      * @param value value the field is to be set to..
      */
     public void set(final String fieldName, final String value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
@@ -100,7 +101,7 @@ public final class JSONObject {
      * @see JSONObject
      */
     public void set(final String fieldName, final JSONObject value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
@@ -110,7 +111,7 @@ public final class JSONObject {
      * @see JSONArray
      */
     public void set(final String fieldName, final JSONArray value) {
-        fields.put(fieldName, value);
+        fields.put(Objects.requireNonNull(fieldName), value);
     }
 
     /**
