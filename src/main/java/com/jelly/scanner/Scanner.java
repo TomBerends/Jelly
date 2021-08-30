@@ -13,10 +13,13 @@ public final class Scanner implements ScannerImplementation {
 
     private ScannerImplementation implementation;
 
-    private int column = 1;
+    private int column;
     private int lineNumber = 1;
 
     private boolean scannedLine;
+
+    private boolean removed = true;
+    private boolean removable = false;
 
     private char[] lineBuffer = new char[DEFAULT_LINE_BUFFER_SIZE];
     private int lineBufferSize = 0;
@@ -47,10 +50,6 @@ public final class Scanner implements ScannerImplementation {
         lineBuffer = Arrays.copyOf(lineBuffer, lineBuffer.length * LINE_BUFFER_SIZE_FACTOR);
     }
 
-    public char read() {
-        return lineBuffer[lineBufferIdx];
-    }
-
     private void bufferCharAt(final int idx, final char c) {
         while(idx >= lineBuffer.length)
             resizeLineBuffer();
@@ -61,7 +60,7 @@ public final class Scanner implements ScannerImplementation {
     }
 
     private void increaseLineNumber() {
-        column = 1;
+        column = 0;
         lineNumber++;
         resetLineBuffer();
     }
@@ -85,9 +84,22 @@ public final class Scanner implements ScannerImplementation {
 
     @Override
     public char next() throws IOException {
+        if(!removed)
+            return lineBuffer[lineBufferIdx];
+
         final char next = nextChar();
         increasePosition(next);
+        removed = false;
+        removable = true;
         return next;
+    }
+
+    public void remove() {
+        if(!removable)
+            return;
+
+        removed = true;
+        removable = false;
     }
 
     @Override
