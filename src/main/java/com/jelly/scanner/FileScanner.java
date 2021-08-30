@@ -1,4 +1,4 @@
-package main.java.com.jelly.scanner;
+package com.jelly.scanner;
 
 import java.io.File;
 import java.io.FileInputStream;

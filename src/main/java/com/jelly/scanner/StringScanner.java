@@ -1,4 +1,4 @@
-package main.java.com.jelly.scanner;
+package com.jelly.scanner;
 
 class StringScanner implements ScannerImplementation {
     char[] source;

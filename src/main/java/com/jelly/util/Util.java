@@ -1,4 +1,4 @@
-package main.java.com.jelly.util;
+package com.jelly.util;
 
 import java.util.HashMap;
 import java.util.Map;

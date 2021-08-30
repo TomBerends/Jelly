@@ -1,6 +1,6 @@
-package main.java.com.jelly;
+package com.jelly;
 
-import main.java.com.jelly.scanner.Scanner;
+import com.jelly.scanner.Scanner;
 import org.jetbrains.annotations.Contract;
 
 import java.io.File;

@@ -1,7 +1,7 @@
-package main.java.com.jelly.tokenizer;
+package com.jelly.lexer;
 
 
-import main.java.com.jelly.scanner.Scanner;
+import com.jelly.scanner.Scanner;
 
 import java.io.IOException;
 
