@@ -1,17 +1,17 @@
 package com.jelly;
 
-import com.jelly.lexer.Lexer;
-import com.jelly.scanner.Scanner;
+import com.jelly.json.JSONObject;
 import org.jetbrains.annotations.Contract;
 
 import java.io.File;
 
+import static com.jelly.parser.Parser.parseJSONObject;
+
 public class Main {
     @Contract(pure = true)
     public static void main(final String[] args) throws Exception {
-        try(final Lexer lexer = new Lexer(new Scanner(new File("src/main/resources/source")))) {
-            while(lexer.hasNext())
-                System.out.println(lexer.next());
-        }
+        final JSONObject jsonObject = parseJSONObject(new File("src/main/resources/source.json"));
+        System.out.println(jsonObject.getString("firstName"));
+        System.out.println(jsonObject);
     }
 }

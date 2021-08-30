@@ -5,15 +5,19 @@ import static com.jelly.lexer.TokenType.NEWLINE;
 
 public class Token {
     final TokenType type;
-    final String value;
+    final Object value;
 
-    public Token(final TokenType type, final char value) {
-        this(type, String.valueOf(value));
-    }
-
-    public Token(final TokenType type, final String value) {
+    public Token(final TokenType type, final Object value) {
         this.type = type;
         this.value = value;
+    }
+
+    public TokenType getType() {
+        return type;
+    }
+
+    public Object getValue() {
+        return value;
     }
 
     @Override

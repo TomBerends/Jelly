@@ -85,7 +85,7 @@ public final class Scanner implements ScannerImplementation {
     @Override
     public char next() throws IOException {
         if(!removed)
-            return lineBuffer[lineBufferIdx];
+            return lineBuffer[lineBufferIdx-1];
 
         final char next = nextChar();
         increasePosition(next);
